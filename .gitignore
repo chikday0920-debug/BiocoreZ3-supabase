@@ -1,0 +1,27 @@
+# Dependencies
+node_modules/
+
+# Environment / secrets
+.env
+.env.local
+*.env
+!.env.example
+.secret.local
+
+# Firebase (retirado, ver plan de migración a Supabase)
+.firebase/
+firebase-debug.log
+firestore-debug.log
+ui-debug.log
+*-service-account*.json
+
+# Supabase CLI (artefactos locales, no se versionan)
+supabase/.temp/
+supabase/.branches/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+
+# Linter reports
+hint-report/

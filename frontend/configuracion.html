@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Configuración · BioCoreZ3</title>
+<link rel="icon" href="assets/img/logo.svg">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#0e5c46">
+<link rel="apple-touch-icon" href="assets/img/icons/apple-touch-icon.png">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+  .settings-row{ display:flex; align-items:center; justify-content:space-between; gap:16px; padding:16px 0; border-bottom:1px solid var(--line); }
+  .settings-row:last-child{ border-bottom:none; }
+  .settings-row b{ display:block; font-size:.92rem; margin-bottom:3px; }
+  .settings-row p{ font-size:.78rem; color:var(--muted); }
+</style>
+</head>
+<body>
+
+<div class="app">
+  <div class="sidebar-backdrop" data-menu-toggle></div>
+  <aside class="sidebar">
+    <div class="brand"><img src="assets/img/logo.svg" alt=""><span>BioCoreZ3</span></div>
+    <nav class="nav-group">
+      <a class="nav-link" data-page="dashboard.html" href="dashboard.html"><i class="fa-solid fa-house"></i> Inicio</a>
+      <a class="nav-link" data-page="escaner.html" href="escaner.html"><i class="fa-solid fa-camera"></i> Escáner</a>
+      <a class="nav-link" data-page="gaiadex.html" href="gaiadex.html"><i class="fa-solid fa-book-open"></i> Gaiadex</a>
+      <a class="nav-link" data-page="tienda.html" href="tienda.html"><i class="fa-solid fa-store"></i> Tienda</a>
+      <a class="nav-link" data-page="perfil.html" href="perfil.html"><i class="fa-solid fa-user"></i> Perfil</a>
+      <a class="nav-link active" data-page="configuracion.html" href="configuracion.html"><i class="fa-solid fa-gear"></i> Configuración</a>
+    </nav>
+    <div class="sidebar-foot">
+      <a class="logout-link" href="index.html"><i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión</a>
+      <div class="tip-card"><i class="fa-solid fa-sparkles"></i> Tu contribución ambiental se actualiza automáticamente.</div>
+    </div>
+  </aside>
+
+  <main class="main">
+    <div class="topbar">
+      <button class="menu-toggle" data-menu-toggle aria-label="Abrir menú"><i class="fa-solid fa-bars"></i></button>
+      <div class="search-box"><i class="fa-solid fa-magnifying-glass"></i><input placeholder="Buscar especies, insignias…" aria-label="Buscar especies, insignias"></div>
+      <div class="topbar-actions">
+        <div class="bell"><i class="fa-regular fa-bell"></i><span class="dot"></span></div>
+        <div class="user-chip">
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Outdoors-man-portrait_(cropped).jpg?width=90" alt="">
+          <div><div class="name">Alex Rivers</div><div class="lvl">Nivel 12 · 420 XP</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="page">
+      <div style="color:#fff; margin-bottom:22px;">
+        <h1 style="font-size:1.7rem; margin-bottom:8px;">Centro de control</h1>
+        <p style="opacity:.85; font-size:.9rem;">Configura tu información personal, preferencias y opciones de seguridad de GaiaDex.</p>
+      </div>
+
+      <div class="tabs" data-tabs="[data-settings-panels]" style="margin-bottom:22px;">
+        <button class="tab-btn active" data-tab="cuenta"><i class="fa-regular fa-user"></i> Cuenta</button>
+        <button class="tab-btn" data-tab="interfaz"><i class="fa-solid fa-desktop"></i> Interfaz</button>
+        <button class="tab-btn" data-tab="privacidad"><i class="fa-solid fa-shield-halved"></i> Privacidad y Seguridad</button>
+      </div>
+
+      <div data-settings-panels>
+
+        <div data-tab-panel="cuenta">
+          <div class="grid grid-sidebar" style="margin-bottom:22px;">
+            <div class="card card-pad" style="text-align:center;">
+              <div style="position:relative; width:110px; margin:0 auto 16px;">
+                <img data-config-avatar src="https://commons.wikimedia.org/wiki/Special:FilePath/Outdoors-man-portrait_(cropped).jpg?width=200" style="width:110px; height:110px; border-radius:50%; object-fit:cover; border:3px solid rgba(255,255,255,.6);" alt="">
+                <input type="file" id="avatarFile" accept="image/*" hidden>
+                <button id="avatarUploadBtn" type="button" class="btn-icon" style="position:absolute; bottom:0; right:0; width:34px; height:34px; background:var(--teal); color:#fff;" aria-label="Cambiar foto de perfil"><i class="fa-solid fa-camera"></i></button>
+              </div>
+              <b style="font-size:1.05rem;" data-config-nombre-pill>Explorador</b>
+              <div style="margin-top:10px; display:flex; justify-content:center; gap:8px;">
+                <span class="pill pill-soft" data-config-lvl-pill>LVL —</span>
+                <span class="pill pill-soft" data-config-xp-pill>— XP</span>
+              </div>
+            </div>
+
+            <div class="card-light card-pad">
+              <div class="section-title" style="color:var(--ink);">Perfil</div>
+              <div class="section-sub" style="color:var(--muted);">Personaliza la información que otros exploradores podrán ver.</div>
+              <div class="input-row">
+                <div class="field">
+                  <label for="configNombre">Nombre de Usuario</label>
+                  <input id="configNombre" class="input" value="">
+                </div>
+                <div class="field">
+                  <label for="configEmail">Correo Electrónico</label>
+                  <input id="configEmail" class="input" value="" disabled data-config-email>
+                </div>
+              </div>
+              <div class="field" style="margin-bottom:0;">
+                <label for="configBio">Biografía</label>
+                <textarea id="configBio" class="input" rows="3" placeholder="Ej.: Explorando la biodiversidad de Colombia…"></textarea>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-light card-pad">
+            <div style="display:flex; align-items:center; gap:10px; margin-bottom:6px;">
+              <i class="fa-solid fa-lock" style="color:var(--teal-deep);"></i>
+              <div class="section-title" style="color:var(--ink); margin-bottom:0;">Seguridad de la Cuenta</div>
+            </div>
+
+            <div class="settings-row">
+              <div><b>Cambiar Contraseña</b><p>Actualiza la contraseña de acceso a tu cuenta.</p></div>
+              <button id="changePasswordBtn" type="button" class="btn btn-white btn-sm">Actualizar</button>
+            </div>
+            <div class="settings-row">
+              <div><b>Autenticación en dos pasos</b><p>Agrega una capa adicional de seguridad al iniciar sesión.</p></div>
+              <div style="display:flex; align-items:center; gap:10px;">
+                <span class="pill pill-common">Active</span>
+                <label class="switch"><input type="checkbox" checked aria-label="Autenticación en dos pasos"><span class="slider"></span></label>
+              </div>
+            </div>
+            <div class="settings-row">
+              <div><b>Acceso Biométrico</b><p>Permite iniciar sesión mediante huella dactilar o reconocimiento facial en dispositivos compatibles.</p></div>
+              <label class="switch"><input type="checkbox" aria-label="Acceso biométrico"><span class="slider"></span></label>
+            </div>
+          </div>
+        </div>
+
+        <div data-tab-panel="interfaz" style="display:none;">
+          <div class="card-light card-pad">
+            <div class="section-title" style="color:var(--ink);">Preferencias de interfaz</div>
+            <div class="section-sub" style="color:var(--muted);">Ajusta la experiencia visual de tu panel de control.</div>
+
+            <div class="settings-row">
+              <div><b>Modo oscuro</b><p>Reduce el brillo de la interfaz en condiciones de poca luz.</p></div>
+              <label class="switch"><input type="checkbox" aria-label="Modo oscuro"><span class="slider"></span></label>
+            </div>
+            <div class="settings-row">
+              <div><b>Idioma</b><p>Idioma predeterminado de la plataforma.</p></div>
+              <select class="input" style="width:auto; padding:10px 16px;" aria-label="Idioma">
+                <option>Español</option><option>English</option><option>Português</option>
+              </select>
+            </div>
+            <div class="settings-row">
+              <div><b>Notificaciones push</b><p>Recibe alertas de nuevas misiones y descubrimientos cercanos.</p></div>
+              <label class="switch"><input type="checkbox" checked aria-label="Notificaciones push"><span class="slider"></span></label>
+            </div>
+            <div class="settings-row">
+              <div><b>Sonido de la interfaz</b><p>Activa los efectos de sonido al escanear o desbloquear logros.</p></div>
+              <label class="switch"><input type="checkbox" checked aria-label="Sonido de la interfaz"><span class="slider"></span></label>
+            </div>
+          </div>
+        </div>
+
+        <div data-tab-panel="privacidad" style="display:none;">
+          <div class="card-light card-pad">
+            <div class="section-title" style="color:var(--ink);">Privacidad y datos</div>
+            <div class="section-sub" style="color:var(--muted);">Controla cómo se comparte tu actividad dentro de la red BioCoreZ3.</div>
+
+            <div class="settings-row">
+              <div><b>Perfil público</b><p>Permite que otros exploradores vean tu GaiaDex y tus insignias.</p></div>
+              <label class="switch"><input type="checkbox" checked aria-label="Perfil público"><span class="slider"></span></label>
+            </div>
+            <div class="settings-row">
+              <div><b>Compartir ubicación aproximada</b><p>Usa tu región para enriquecer el mapa global de biodiversidad.</p></div>
+              <label class="switch"><input type="checkbox" checked aria-label="Compartir ubicación aproximada"><span class="slider"></span></label>
+            </div>
+            <div class="settings-row">
+              <div><b>Compartir datos con investigadores</b><p>Contribuye tus escaneos anonimizados a proyectos científicos abiertos.</p></div>
+              <label class="switch"><input type="checkbox" aria-label="Compartir datos con investigadores"><span class="slider"></span></label>
+            </div>
+            <div class="settings-row">
+              <div><b>Descargar mis datos</b><p>Exporta una copia completa de tu actividad y registros.</p></div>
+              <button class="btn btn-white btn-sm"><i class="fa-solid fa-download"></i> Solicitar</button>
+            </div>
+            <div class="settings-row">
+              <div><b style="color:#dc2626;">Eliminar cuenta</b><p>Esta acción es permanente y elimina todos tus registros.</p></div>
+              <button class="btn btn-sm" style="background:#fee2e2; color:#dc2626;">Eliminar</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div style="display:flex; justify-content:flex-end; gap:14px; margin-top:22px;">
+        <button id="resetSettings" type="button" class="btn btn-outline" style="color:#fff;">Restablecer</button>
+        <button id="saveSettings" class="btn btn-white"><i class="fa-solid fa-floppy-disk"></i> Guardar Cambios</button>
+      </div>
+
+    </div>
+
+    <div class="footer-min" style="justify-content:center;">
+      <span>biocorez3-OS v4.2.0-STABLE | NODE: NA-731</span>
+    </div>
+  </main>
+</div>
+
+<dialog id="changePasswordDialog" style="border:none; border-radius:var(--radius-lg); padding:0; max-width:380px; width:90%;">
+  <form id="changePasswordForm" class="card-light card-pad" style="margin:0;">
+    <div class="section-title" style="color:var(--ink);">Cambiar contraseña</div>
+    <div class="field">
+      <label for="currentPass">Contraseña actual</label>
+      <input id="currentPass" class="input" type="password" autocomplete="current-password" required>
+    </div>
+    <div class="field" style="margin-bottom:0;">
+      <label for="newPass">Contraseña nueva</label>
+      <input id="newPass" class="input" type="password" autocomplete="new-password" minlength="6" required>
+    </div>
+    <div style="display:flex; justify-content:flex-end; gap:10px; margin-top:16px;">
+      <button id="cancelPasswordChange" type="button" class="btn btn-white btn-sm">Cancelar</button>
+      <button type="submit" class="btn btn-primary btn-sm">Guardar</button>
+    </div>
+  </form>
+</dialog>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="assets/js/supabase-config.js"></script>
+<script src="assets/js/session.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/configuracion.js"></script>
+</body>
+</html>

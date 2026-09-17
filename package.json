@@ -1,0 +1,14 @@
+{
+  "name": "biocorez3",
+  "private": true,
+  "description": "Herramientas de proyecto para la migración a Supabase (CLI local, servidor estático del frontend)",
+  "scripts": {
+    "frontend": "npx serve frontend",
+    "supabase": "supabase"
+  },
+  "devDependencies": {
+    "playwright": "^1.63.0",
+    "serve": "^14.2.6",
+    "supabase": "^2.15.1"
+  }
+}

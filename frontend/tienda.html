@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tienda · BioCoreZ3</title>
+<link rel="icon" href="assets/img/logo.svg">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#0e5c46">
+<link rel="apple-touch-icon" href="assets/img/icons/apple-touch-icon.png">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+  .shop-card{ background:#fff; border-radius:var(--radius-lg); padding:18px; box-shadow:var(--shadow-sm); display:flex; flex-direction:column; }
+  .shop-avatar{ width:100%; aspect-ratio:1/1; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:3rem; margin-bottom:14px; }
+  .shop-card h4{ font-size:.98rem; margin-bottom:4px; }
+  .shop-card p{ font-size:.78rem; color:var(--muted); line-height:1.4; margin-bottom:14px; min-height:34px; }
+  .shop-card .price-row{ display:flex; align-items:center; justify-content:space-between; margin-top:auto; }
+  .price-tag{ display:flex; align-items:center; gap:6px; font-weight:800; color: var(--forest); }
+</style>
+</head>
+<body>
+
+<div class="app">
+  <div class="sidebar-backdrop" data-menu-toggle></div>
+  <aside class="sidebar">
+    <div class="brand"><img src="assets/img/logo.svg" alt=""><span>BioCoreZ3</span></div>
+    <nav class="nav-group">
+      <a class="nav-link" data-page="dashboard.html" href="dashboard.html"><i class="fa-solid fa-house"></i> Inicio</a>
+      <a class="nav-link" data-page="escaner.html" href="escaner.html"><i class="fa-solid fa-camera"></i> Escáner</a>
+      <a class="nav-link" data-page="gaiadex.html" href="gaiadex.html"><i class="fa-solid fa-book-open"></i> Gaiadex</a>
+      <a class="nav-link active" data-page="tienda.html" href="tienda.html"><i class="fa-solid fa-store"></i> Tienda</a>
+      <a class="nav-link" data-page="perfil.html" href="perfil.html"><i class="fa-solid fa-user"></i> Perfil</a>
+      <a class="nav-link" data-page="configuracion.html" href="configuracion.html"><i class="fa-solid fa-gear"></i> Configuraciones</a>
+    </nav>
+    <div class="sidebar-foot">
+      <a class="logout-link" href="index.html"><i class="fa-solid fa-right-from-bracket"></i> Salir</a>
+      <div class="tip-card"><i class="fa-solid fa-sparkles"></i> Tu contribución a la biodiversidad alcanzó el Nivel 4.</div>
+    </div>
+  </aside>
+
+  <main class="main">
+    <div class="topbar">
+      <button class="menu-toggle" data-menu-toggle aria-label="Abrir menú"><i class="fa-solid fa-bars"></i></button>
+      <div class="search-box"><i class="fa-solid fa-magnifying-glass"></i><input placeholder="Buscar especies…" aria-label="Buscar especies"></div>
+      <div class="topbar-actions">
+        <div class="bell"><i class="fa-regular fa-bell"></i><span class="dot"></span></div>
+        <div class="user-chip">
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Outdoors-man-portrait_(cropped).jpg?width=90" alt="">
+          <div><div class="name">Alex Rivers</div><div class="lvl">Nivel 12 · 420 XP</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="page">
+
+      <div class="card" style="padding:30px; margin-bottom:22px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:20px;">
+        <div style="max-width:420px;">
+          <h1 style="font-size:1.7rem; margin-bottom:10px;">Mejora tu presencia de biodiversidad digital</h1>
+          <p style="opacity:.88; font-size:.9rem; margin-bottom:18px;">Desbloquea artículos de personalización exclusivos, potenciadores y compañeros robóticos. ¡Sigue escaneando para ganar más!</p>
+          <div style="display:flex; gap:12px; flex-wrap:wrap;">
+            <a href="#" class="btn btn-primary btn-sm"><i class="fa-solid fa-chart-line"></i> Ver los más vendidos</a>
+            <a href="#" class="btn btn-outline btn-sm" style="color:#fff;">Ofertas</a>
+          </div>
+        </div>
+        <div style="background:rgba(255,255,255,.16); border:1px solid rgba(255,255,255,.3); border-radius:18px; padding:20px 26px; min-width:230px;">
+          <div style="display:flex; justify-content:space-between; font-size:.72rem; opacity:.85; text-transform:uppercase; margin-bottom:6px;">Saldo actual <i class="fa-solid fa-coins"></i></div>
+          <div style="font-family:'Fredoka'; font-size:1.9rem; margin-bottom:4px;"><span data-tienda-saldo>—</span> <small style="font-size:.9rem;">créditos</small></div>
+          <div style="font-size:.72rem; opacity:.75; margin-bottom:14px;">Ganas créditos escaneando nuevas especies</div>
+        </div>
+      </div>
+
+      <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:14px; margin-bottom:22px;">
+        <div class="tabs">
+          <button class="tab-btn active">Todos</button>
+          <button class="tab-btn">Accesorios</button>
+          <button class="tab-btn">Skins</button>
+          <button class="tab-btn">Mejoras</button>
+          <button class="tab-btn">Companions</button>
+        </div>
+        <div style="display:flex; gap:10px; align-items:center;">
+          <div class="search-box" style="background:rgba(255,255,255,.5); border-color:var(--line);"><i class="fa-solid fa-magnifying-glass" style="color:var(--muted);"></i><input placeholder="Buscar…" style="color:var(--ink);" aria-label="Buscar en la tienda"></div>
+          <button class="btn-icon" style="background:#fff;" aria-label="Filtrar"><i class="fa-solid fa-filter"></i></button>
+          <button class="btn-icon" style="background:var(--teal); color:#fff;" aria-label="Ver carrito"><i class="fa-solid fa-cart-shopping"></i></button>
+        </div>
+      </div>
+
+      <div class="grid grid-3" style="margin-bottom:22px;" data-tienda-grid>
+        <p style="color:#fff; opacity:.8;">Cargando catálogo…</p>
+      </div>
+
+      <div class="grid grid-2" style="margin-bottom:22px;">
+        <div class="card card-pad" style="display:flex; justify-content:space-between; align-items:center; gap:16px;">
+          <div>
+            <h3 style="font-size:1.15rem; margin-bottom:8px;">El conjunto guardián de Gaia</h3>
+            <p style="font-size:.82rem; opacity:.85; margin-bottom:12px; line-height:1.5;">Completa el conjunto para recibir una bonificación de experiencia del 25% en todos los escaneos.</p>
+            <a href="#" style="font-weight:700; font-size:.85rem; color:var(--lime);">Explorar colección <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+          <div style="width:70px; height:70px; border-radius:20px; background:rgba(255,255,255,.18); display:flex; align-items:center; justify-content:center; font-size:1.8rem; flex:none;"><i class="fa-solid fa-bolt"></i></div>
+        </div>
+        <div class="card card-pad" style="display:flex; justify-content:space-between; align-items:center; gap:16px;">
+          <div>
+            <h3 style="font-size:1.15rem; margin-bottom:8px;">Aspectos celestiales</h3>
+            <p style="font-size:.82rem; opacity:.85; margin-bottom:12px; line-height:1.5;">Estética etérea para exploradores que rastrean la biodiversidad nocturna.</p>
+            <a href="#" style="font-weight:700; font-size:.85rem; color:var(--lime);">Ver nuevos estilos <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+          <div style="width:70px; height:70px; border-radius:20px; background:rgba(255,255,255,.18); display:flex; align-items:center; justify-content:center; font-size:1.8rem; flex:none;"><i class="fa-solid fa-ghost"></i></div>
+        </div>
+      </div>
+
+      <div class="card-light card-pad" style="display:flex; align-items:center; gap:20px; flex-wrap:wrap;">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Outdoors-man-portrait_(cropped).jpg?width=90" style="width:52px; height:52px; border-radius:50%; object-fit:cover;" alt="">
+        <div style="display:flex; gap:32px; flex-wrap:wrap; flex:1;">
+          <div><b style="display:block; font-size:.68rem; text-transform:uppercase; color:var(--muted);">Estado de tu inventario</b><span style="font-weight:700;">8/25 Slots Usados · 3 Boosts Active</span></div>
+          <div><b style="display:block; font-size:.68rem; text-transform:uppercase; color:var(--muted);">Total gastado</b><span style="font-weight:700;">45.2K</span></div>
+          <div><b style="display:block; font-size:.68rem; text-transform:uppercase; color:var(--muted);">Objetos recogidos</b><span style="font-weight:700;">124</span></div>
+          <div><b style="display:block; font-size:.68rem; text-transform:uppercase; color:var(--muted);">Bonificación de rareza</b><span style="font-weight:700; color:var(--leaf-deep);">+12%</span></div>
+        </div>
+        <div style="display:flex; gap:10px;">
+          <button class="btn btn-ghost btn-sm">Gestionar equipo</button>
+          <button class="btn btn-primary btn-sm"><i class="fa-solid fa-clock-rotate-left"></i> Historial</button>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer-min">
+      <span>BIOCOREZ3 MARKETPLACE · SECURE DIGITAL EXCHANGE · DECENTRALIZED BIODIVERSITY LEDGER</span>
+    </div>
+  </main>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="assets/js/supabase-config.js"></script>
+<script src="assets/js/session.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/tienda.js"></script>
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Iniciar sesión · BioCoreZ3</title>
+<link rel="icon" href="assets/img/logo.svg">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#0e5c46">
+<link rel="apple-touch-icon" href="assets/img/icons/apple-touch-icon.png">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+<div class="auth-page" style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Wild_green_jungle_forest_scenics.jpg?width=1600');">
+
+  <div style="position:relative; z-index:2; width:100%; display:flex; flex-direction:column; align-items:center;">
+
+    <div class="auth-brand">
+      <img src="assets/img/logo.svg" alt="BioCoreZ3">
+      <h1>Bienvenid@ a BioCoreZ3</h1>
+    </div>
+    <p class="auth-tagline">ESCANEA · ANALIZA · APRENDE</p>
+
+    <div class="auth-shell">
+      <div class="auth-left">
+        <span class="auth-eyebrow"><i class="fa-solid fa-satellite-dish"></i> RED DE INTELIGENCIA</span>
+        <h2>Bienvenid@ de vuelta, guardián de la biodiversidad.</h2>
+        <div class="auth-feature">
+          <div class="ico"><i class="fa-solid fa-chart-line"></i></div>
+          <div>
+            <b>+150.000 usuarios activos</b>
+            <span>Una comunidad global registrando biodiversidad todos los días.</span>
+          </div>
+        </div>
+        <div class="auth-feature">
+          <div class="ico"><i class="fa-solid fa-brain"></i></div>
+          <div>
+            <b>Precisión de IA en tiempo real</b>
+            <span>Motor de identificación v4.2 con visión artificial de última generación.</span>
+          </div>
+        </div>
+        <div class="grid grid-2" style="gap:14px; margin:10px 0 20px;">
+          <div class="info-tile" style="background:rgba(255,255,255,.14); box-shadow:none;">
+            <div class="ico" style="width:34px;height:34px;border-radius:10px;background:rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center;"><i class="fa-solid fa-users"></i></div>
+            <div><b style="color:rgba(255,255,255,.7)">NÚMERO DE USUARIOS</b><span style="color:#fff">96%</span></div>
+          </div>
+          <div class="info-tile" style="background:rgba(255,255,255,.14); box-shadow:none;">
+            <div class="ico" style="width:34px;height:34px;border-radius:10px;background:rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center;"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+            <div><b style="color:rgba(255,255,255,.7)">PRECISIÓN DE IA</b><span style="color:#fff">98%</span></div>
+          </div>
+        </div>
+        <div class="auth-social-card">
+          <div style="display:flex; align-items:center; justify-content:space-between;">
+            <b style="font-size:.82rem;">Protocolo de seguridad</b>
+            <i class="fa-solid fa-shield-halved" style="opacity:.8"></i>
+          </div>
+          <div class="lvl-row"><span>BIOCOREZ3 · v4.2.0</span><span>AES-256 ENCRYPTED</span></div>
+        </div>
+      </div>
+
+      <div class="auth-right">
+        <h2>Inicio de sesión</h2>
+        <p class="sub">Ingresa tu correo electrónico para continuar.</p>
+
+        <form id="loginForm">
+          <div class="field">
+            <label for="loginEmail">Correo electrónico</label>
+            <div class="input-wrap">
+              <i class="fa-regular fa-envelope"></i>
+              <input id="loginEmail" type="email" placeholder="name@biocore.tech" required>
+            </div>
+          </div>
+
+          <div class="field">
+            <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:8px;">
+              <label style="margin:0;" for="loginPass">Contraseña</label>
+              <a id="forgotPasswordLink" href="#" style="font-size:.78rem; font-weight:700; color:var(--teal-deep);">¿Has olvidado tu contraseña?</a>
+            </div>
+            <div class="input-wrap">
+              <i class="fa-solid fa-lock"></i>
+              <input id="loginPass" type="password" placeholder="••••••••" required>
+              <button type="button" class="toggle-eye" aria-label="Mostrar contraseña"><i class="fa-solid fa-eye"></i></button>
+            </div>
+          </div>
+
+          <label class="checkbox-row" style="margin-bottom:20px;">
+            <input type="checkbox">
+            <span>Confía en este dispositivo por 30 días.</span>
+          </label>
+
+          <button type="submit" class="btn btn-primary btn-lg">Ingresar <i class="fa-solid fa-arrow-right"></i></button>
+        </form>
+
+        <div class="auth-divider">Biometric Pass</div>
+        <div class="social-row">
+          <button class="social-btn"><i class="fa-solid fa-fingerprint"></i> Bio ID</button>
+          <button class="social-btn"><i class="fa-brands fa-google"></i> Google</button>
+        </div>
+
+        <p class="auth-switch">¿No tienes cuenta? <a href="registro.html">Regístrate</a></p>
+      </div>
+    </div>
+
+    <div class="auth-footer">
+      <span><i class="fa-solid fa-lock"></i> AES-256 ENCRYPTED</span>
+      <span><i class="fa-solid fa-circle" style="color:#7CFC9C; font-size:.5rem; vertical-align:middle;"></i> SYSTEM ONLINE</span>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="assets/js/supabase-config.js"></script>
+<script src="assets/js/session.js"></script>
+<script src="assets/js/auth.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>

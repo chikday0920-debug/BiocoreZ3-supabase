@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inicio · BioCoreZ3</title>
+<link rel="icon" href="assets/img/logo.svg">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#0e5c46">
+<link rel="apple-touch-icon" href="assets/img/icons/apple-touch-icon.png">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+<div class="app">
+  <div class="sidebar-backdrop" data-menu-toggle></div>
+  <aside class="sidebar">
+    <div class="brand"><img src="assets/img/logo.svg" alt=""><span>BioCoreZ3</span></div>
+    <nav class="nav-group">
+      <a class="nav-link active" data-page="dashboard.html" href="dashboard.html"><i class="fa-solid fa-house"></i> Inicio</a>
+      <a class="nav-link" data-page="escaner.html" href="escaner.html"><i class="fa-solid fa-camera"></i> Escáner</a>
+      <a class="nav-link" data-page="gaiadex.html" href="gaiadex.html"><i class="fa-solid fa-book-open"></i> Gaiadex</a>
+      <a class="nav-link" data-page="tienda.html" href="tienda.html"><i class="fa-solid fa-store"></i> Tienda</a>
+      <a class="nav-link" data-page="perfil.html" href="perfil.html"><i class="fa-solid fa-user"></i> Perfil</a>
+      <a class="nav-link" data-page="configuracion.html" href="configuracion.html"><i class="fa-solid fa-gear"></i> Configuraciones</a>
+    </nav>
+    <div class="sidebar-foot">
+      <a class="logout-link" href="index.html"><i class="fa-solid fa-right-from-bracket"></i> Salir</a>
+      <div class="tip-card"><i class="fa-solid fa-sparkles"></i> Tu contribución a la biodiversidad alcanzó el Nivel 4. ¡Sigue explorando!</div>
+    </div>
+  </aside>
+
+  <main class="main">
+    <div class="topbar">
+      <button class="menu-toggle" data-menu-toggle aria-label="Abrir menú"><i class="fa-solid fa-bars"></i></button>
+      <div class="search-box"><i class="fa-solid fa-magnifying-glass"></i><input placeholder="Buscar especies…" aria-label="Buscar especies"></div>
+      <div class="topbar-actions">
+        <div class="bell"><i class="fa-regular fa-bell"></i><span class="dot"></span></div>
+        <div class="user-chip">
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Outdoors-man-portrait_(cropped).jpg?width=90" alt="">
+          <div><div class="name">Alex Rivers</div><div class="lvl">Nivel 12 · 420 XP</div></div>
+          <i class="fa-solid fa-chevron-down" style="font-size:.7rem;"></i>
+        </div>
+      </div>
+    </div>
+
+    <div class="page">
+
+      <!-- HERO -->
+      <div class="card" style="overflow:hidden; margin-bottom:22px; position:relative; min-height:280px; background:
+          linear-gradient(100deg, rgba(10,50,40,.78) 10%, rgba(10,50,40,.15) 60%),
+          url('https://commons.wikimedia.org/wiki/Special:FilePath/Tomato_Garden_(Unsplash).jpg?width=1400') center/cover;">
+        <div style="padding:34px; max-width:560px;">
+          <span class="pill pill-soft" style="margin-bottom:14px;"><i class="fa-solid fa-sparkles"></i> Special Discovery Available</span>
+          <h1 style="font-size:2.3rem; line-height:1.15; margin-bottom:14px;">Monitorea tu cultivo con IA</h1>
+          <p style="opacity:.9; font-size:.95rem; margin-bottom:24px; max-width:440px;">Analiza el estado ambiental de tus cultivos en segundos mediante visión artificial y datos inteligentes.</p>
+          <div style="display:flex; gap:14px; flex-wrap:wrap;">
+            <a href="escaner.html" class="btn btn-primary">Escanear Ahora <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="gaiadex.html" class="btn btn-outline" style="color:#fff;">Ver Historial</a>
+          </div>
+        </div>
+        <div style="position:absolute; top:24px; right:24px; background:rgba(10,40,30,.55); border:1px solid rgba(255,255,255,.25); padding:10px 14px; border-radius:12px; font-size:.72rem; color:#fff;">
+          <div><i class="fa-solid fa-location-dot"></i> LAT: 34.0522° N</div>
+          <div><i class="fa-solid fa-location-crosshairs"></i> LON: 118.2437° W</div>
+        </div>
+        <div style="position:absolute; bottom:24px; left:34px; display:flex; gap:12px;">
+          <button class="btn-icon" style="background:rgba(255,255,255,.25); color:#fff;" aria-label="Actualizar"><i class="fa-solid fa-rotate"></i></button>
+          <button class="btn-icon" style="background:var(--lime); color:var(--forest-ink); width:52px; height:52px;" aria-label="Centrar ubicación"><i class="fa-solid fa-crosshairs" style="font-size:1.2rem;"></i></button>
+          <button class="btn-icon" style="background:rgba(255,255,255,.25); color:#fff;" aria-label="Tomar foto"><i class="fa-solid fa-camera"></i></button>
+        </div>
+      </div>
+
+      <!-- STATS -->
+      <div class="grid grid-4" style="margin-bottom:22px;">
+        <div class="stat-card">
+          <div class="top-row"><div class="icon-badge"><i class="fa-solid fa-seedling"></i></div></div>
+          <div class="label">Escaneos totales</div><div class="value" data-stat-escaneos>—</div>
+        </div>
+        <div class="stat-card">
+          <div class="top-row"><div class="icon-badge"><i class="fa-solid fa-bolt"></i></div></div>
+          <div class="label">Experiencia acumulada</div><div class="value" data-stat-xp>— <small style="font-size:.9rem; opacity:.8;">XP</small></div>
+        </div>
+        <div class="stat-card">
+          <div class="top-row"><div class="icon-badge"><i class="fa-solid fa-trophy"></i></div></div>
+          <div class="label">Nivel actual</div><div class="value" data-stat-nivel>—</div>
+        </div>
+        <div class="stat-card">
+          <div class="top-row"><div class="icon-badge"><i class="fa-solid fa-paw"></i></div></div>
+          <div class="label">Especies únicas</div><div class="value" data-stat-especies>—</div>
+        </div>
+      </div>
+
+      <!-- MAIN GRID -->
+      <div class="grid grid-main" style="margin-bottom:22px;">
+        <div class="card card-pad">
+          <div class="section-title">Estadísticas</div>
+          <div class="section-sub">Análisis de la actividad regional durante los últimos 6 meses</div>
+          <canvas id="statsChart" height="110"></canvas>
+        </div>
+
+        <div style="display:flex; flex-direction:column; gap:22px;">
+          <div class="card card-pad">
+            <div class="section-title">Misiones activas</div>
+            <div class="section-sub">Completa objetivos para conseguir logros</div>
+
+            <div class="mission-row">
+              <div class="mr-top"><span class="ico">🍄</span> Recolector de hongos <span class="count">8/10</span></div>
+              <div class="progress"><span style="width:80%"></span></div>
+            </div>
+            <div class="mission-row">
+              <div class="mr-top"><span class="ico">🗺️</span> Diagrama topográfico de dosel <span class="count">2/5</span></div>
+              <div class="progress"><span style="width:40%"></span></div>
+            </div>
+            <div class="mission-row">
+              <div class="mr-top"><span class="ico">🐝</span> Patrulla de polinizadores <span class="count">9/15</span></div>
+              <div class="progress"><span style="width:60%"></span></div>
+            </div>
+            <a href="#" class="btn btn-white btn-block" style="margin-top:6px;">Explorar más misiones</a>
+          </div>
+
+          <div class="card card-pad">
+            <span class="pill pill-soft" style="margin-bottom:10px;">NEXT LEVEL PROGRESS</span>
+            <div style="font-family:'Fredoka'; font-size:1.6rem; margin-bottom:14px;" data-nivel-titulo>NIVEL —</div>
+            <div style="display:flex; justify-content:space-between; font-size:.72rem; opacity:.85; margin-bottom:8px;">
+              <span>XP EN ESTE NIVEL<br><b style="font-size:1rem; color:#fff;" data-nivel-xp-actual>—</b></span>
+              <span style="text-align:right;">PARA EL SIGUIENTE NIVEL<br><b style="font-size:1rem; color:var(--lime);" data-nivel-xp-falta>—</b></span>
+            </div>
+            <div class="progress"><span data-nivel-barra style="width:0%"></span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- LOWER GRID -->
+      <div class="grid grid-main">
+        <div class="card card-pad">
+          <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:6px;">
+            <div class="section-title" style="margin-bottom:0;">Escaneos recientes</div>
+            <a href="gaiadex.html" style="font-size:.8rem; font-weight:700; opacity:.85;">View All</a>
+          </div>
+          <div class="section-sub">Tus especies identificadas más recientes.</div>
+
+          <div data-escaneos-recientes>
+            <p style="color:var(--muted); font-size:.85rem;">Cargando…</p>
+          </div>
+        </div>
+
+        <div style="display:flex; flex-direction:column; gap:22px;">
+          <div class="card card-pad">
+            <div class="section-title" style="margin-bottom:14px;">Actividad global</div>
+            <div class="avatar-stack" style="margin-bottom:14px;">
+              <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Outdoors-man-portrait_(cropped).jpg?width=60" alt="">
+              <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Red-eyed_Tree_Frog_(Agalychnis_callidryas)_3.jpg?width=60" alt="">
+              <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Blue_Morpho_butterfly_(Morpho_peleides)_wings_open.jpg?width=60" alt="">
+              <img src="https://commons.wikimedia.org/wiki/Special:FilePath/A_40_year_old_jade_plant_(Crassula_ovata).jpg?width=60" alt="">
+            </div>
+            <div style="background:rgba(255,255,255,.14); border-radius:14px; padding:14px 16px; font-size:.85rem; line-height:1.5;">
+              <b>@EcoWarrior_07</b> acabo de descubrir un isópodo raro en la zona forestal de San Pedro de los Milagros.
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer-min">
+      <div style="display:flex; align-items:center; gap:8px;"><img src="assets/img/logo.svg" style="width:22px;height:22px;" alt=""> biocoreZ</div>
+      <div style="display:flex; gap:22px; flex-wrap:wrap;">
+        <a href="#">políticas de seguridad</a><a href="#">términos de seguridad</a><a href="#">API Docs</a>
+      </div>
+      <span>© 2026 BIOCOREZ</span>
+    </div>
+  </main>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.4/chart.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="assets/js/supabase-config.js"></script>
+<script src="assets/js/session.js"></script>
+<script src="assets/js/dashboard.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>

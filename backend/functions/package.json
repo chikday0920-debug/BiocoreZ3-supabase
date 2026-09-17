@@ -1,0 +1,17 @@
+{
+  "name": "biocorez3-functions",
+  "description": "Cloud Functions backend for BioCoreZ3",
+  "main": "index.js",
+  "engines": {
+    "node": "20"
+  },
+  "scripts": {
+    "serve": "firebase emulators:start --only hosting,functions,firestore,auth,storage",
+    "deploy": "firebase deploy --only functions"
+  },
+  "dependencies": {
+    "firebase-admin": "^12.5.0",
+    "firebase-functions": "^5.1.1"
+  },
+  "private": true
+}

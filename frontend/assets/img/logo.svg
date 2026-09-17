@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <defs>
+    <linearGradient id="g1" x1="4" y1="4" x2="60" y2="60" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#5b9bd9"/>
+      <stop offset="0.55" stop-color="#21a179"/>
+      <stop offset="1" stop-color="#0e5c46"/>
+    </linearGradient>
+    <linearGradient id="g2" x1="16" y1="40" x2="48" y2="14" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#c3f53c"/>
+      <stop offset="1" stop-color="#14b8a6"/>
+    </linearGradient>
+  </defs>
+  <circle cx="32" cy="32" r="30" fill="url(#g1)" stroke="#eafbf3" stroke-width="2"/>
+  <g opacity="0.35" stroke="#eafbf3" stroke-width="1">
+    <ellipse cx="32" cy="32" rx="30" ry="12"/>
+    <line x1="2" y1="32" x2="62" y2="32"/>
+  </g>
+  <path d="M32 46C32 46 20 38 20 26C20 19 25.5 14 32 14C38.5 14 44 19 44 26C44 38 32 46 32 46Z" fill="url(#g2)"/>
+  <path d="M32 44V20" stroke="#0e5c46" stroke-width="2" stroke-linecap="round"/>
+  <path d="M32 26C32 26 27 24 25 19" stroke="#0e5c46" stroke-width="2" stroke-linecap="round"/>
+  <path d="M32 33C32 33 38 31 40 25" stroke="#0e5c46" stroke-width="2" stroke-linecap="round"/>
+</svg>

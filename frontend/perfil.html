@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Perfil · BioCoreZ3</title>
+<link rel="icon" href="assets/img/logo.svg">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#0e5c46">
+<link rel="apple-touch-icon" href="assets/img/icons/apple-touch-icon.png">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+<div class="app">
+  <div class="sidebar-backdrop" data-menu-toggle></div>
+  <aside class="sidebar">
+    <div class="brand"><img src="assets/img/logo.svg" alt=""><span>BioCoreZ3</span></div>
+    <nav class="nav-group">
+      <a class="nav-link" data-page="dashboard.html" href="dashboard.html"><i class="fa-solid fa-house"></i> Inicio</a>
+      <a class="nav-link" data-page="escaner.html" href="escaner.html"><i class="fa-solid fa-camera"></i> Escáner</a>
+      <a class="nav-link" data-page="gaiadex.html" href="gaiadex.html"><i class="fa-solid fa-book-open"></i> Gaiadex</a>
+      <a class="nav-link" data-page="tienda.html" href="tienda.html"><i class="fa-solid fa-store"></i> Tienda</a>
+      <a class="nav-link active" data-page="perfil.html" href="perfil.html"><i class="fa-solid fa-user"></i> Perfil</a>
+      <a class="nav-link" data-page="configuracion.html" href="configuracion.html"><i class="fa-solid fa-gear"></i> Configuraciones</a>
+    </nav>
+    <div class="sidebar-foot">
+      <a class="logout-link" href="index.html"><i class="fa-solid fa-right-from-bracket"></i> Salir</a>
+      <div class="tip-card"><i class="fa-solid fa-sparkles"></i> Tu contribución a la biodiversidad alcanzó el Nivel 4.</div>
+    </div>
+  </aside>
+
+  <main class="main">
+    <div class="topbar">
+      <button class="menu-toggle" data-menu-toggle aria-label="Abrir menú"><i class="fa-solid fa-bars"></i></button>
+      <div class="search-box"><i class="fa-solid fa-magnifying-glass"></i><input placeholder="Buscar especies, insignias…" aria-label="Buscar especies, insignias"></div>
+      <div class="topbar-actions">
+        <div class="bell"><i class="fa-regular fa-bell"></i><span class="dot"></span></div>
+        <div class="user-chip">
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Outdoors-man-portrait_(cropped).jpg?width=90" alt="">
+          <div><div class="name">Alex Rivers</div><div class="lvl">Nivel 12 · 420 XP</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="page">
+
+      <div class="card card-pad" style="display:flex; justify-content:space-between; align-items:center; gap:20px; flex-wrap:wrap; margin-bottom:22px;">
+        <div style="display:flex; gap:20px; align-items:center;">
+          <div style="position:relative; flex:none;">
+            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Outdoors-man-portrait_(cropped).jpg?width=180" style="width:92px; height:92px; border-radius:50%; object-fit:cover; border:3px solid rgba(255,255,255,.7);" alt="">
+            <span style="position:absolute; bottom:0; right:0; background:var(--lime); color:var(--forest-ink); font-weight:800; font-size:.78rem; width:28px; height:28px; border-radius:50%; display:flex; align-items:center; justify-content:center; border:2px solid #fff;" data-perfil-nivel-badge>—</span>
+          </div>
+          <div>
+            <h1 style="font-size:1.5rem; margin-bottom:4px;" data-perfil-nombre>Explorador</h1>
+            <p style="font-size:.82rem; opacity:.85; margin-bottom:10px;" data-perfil-email></p>
+          </div>
+        </div>
+        <div style="display:flex; gap:12px; flex-wrap:wrap;">
+          <button class="btn btn-primary btn-sm"><i class="fa-solid fa-pen"></i> Editar perfil</button>
+          <button class="btn btn-white btn-sm"><i class="fa-solid fa-share-nodes"></i> Compartir registros</button>
+        </div>
+      </div>
+
+      <div class="grid grid-main" style="margin-bottom:22px;">
+        <div class="card card-pad">
+          <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:10px;">
+            <div>
+              <div class="section-title" style="margin-bottom:2px;">Progreso de niveles</div>
+              <span style="font-size:.78rem; opacity:.8;" data-perfil-falta-nivel></span>
+            </div>
+            <i class="fa-solid fa-trophy" style="font-size:1.5rem; color:#facc15;"></i>
+          </div>
+          <div style="display:flex; justify-content:space-between; font-size:.82rem; margin-bottom:8px;">
+            <b data-perfil-xp-actual>—</b><b data-perfil-xp-pct>—</b>
+          </div>
+          <div class="progress" style="margin-bottom:22px;"><span data-perfil-barra style="width:0%"></span></div>
+
+          <div class="grid grid-4" style="gap:14px;">
+            <div class="info-tile" style="background:rgba(255,255,255,.14); box-shadow:none; flex-direction:column; align-items:flex-start; gap:4px;">
+              <span style="font-size:.68rem; text-transform:uppercase; opacity:.8;"><i class="fa-solid fa-bolt"></i> Total EXP</span>
+              <b style="font-size:1.2rem; color:#fff;" data-perfil-xp-total>—</b>
+            </div>
+            <div class="info-tile" style="background:rgba(255,255,255,.14); box-shadow:none; flex-direction:column; align-items:flex-start; gap:4px;">
+              <span style="font-size:.68rem; text-transform:uppercase; opacity:.8;"><i class="fa-solid fa-paw"></i> Especies</span>
+              <b style="font-size:1.2rem; color:#fff;" data-perfil-especies>—</b>
+            </div>
+            <div class="info-tile" style="background:rgba(255,255,255,.14); box-shadow:none; flex-direction:column; align-items:flex-start; gap:4px;">
+              <span style="font-size:.68rem; text-transform:uppercase; opacity:.8;"><i class="fa-solid fa-camera"></i> Escaneos</span>
+              <b style="font-size:1.2rem; color:#fff;" data-perfil-escaneos>—</b>
+            </div>
+            <div class="info-tile" style="background:rgba(255,255,255,.14); box-shadow:none; flex-direction:column; align-items:flex-start; gap:4px;">
+              <span style="font-size:.68rem; text-transform:uppercase; opacity:.8;"><i class="fa-solid fa-coins"></i> Monedas</span>
+              <b style="font-size:1.2rem; color:#fff;" data-perfil-monedas>—</b>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-light card-pad">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+            <div class="section-title" style="margin-bottom:0;">Contribución</div>
+            <i class="fa-regular fa-calendar" style="color:var(--muted);"></i>
+          </div>
+          <canvas id="contribChart" height="130"></canvas>
+        </div>
+      </div>
+
+      <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:16px;" data-tabs="[data-profile-panels]">
+        <div class="tabs">
+          <button class="tab-btn active" data-tab="insignias">Inventario</button>
+          <button class="tab-btn" data-tab="actividad">Actividad</button>
+        </div>
+        <a href="gaiadex.html" style="font-weight:700; font-size:.85rem; color:#fff;">View All Registry <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+
+      <div data-profile-panels>
+        <div data-tab-panel="insignias" class="grid grid-4" data-perfil-inventario>
+          <p style="color:var(--muted); grid-column:1/-1;">Cargando…</p>
+        </div>
+
+        <div data-tab-panel="actividad" class="card-light card-pad" style="display:none;" data-perfil-actividad>
+          <p style="color:var(--muted);">Cargando…</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer-min">
+      <div style="display:flex; align-items:center; gap:8px;"><i class="fa-solid fa-award"></i> biocoreZ3 Registry v2.4.1</div>
+      <div style="display:flex; gap:22px; flex-wrap:wrap;">
+        <a href="#">Privacy Protocols</a><a href="#">Data Collection Agreement</a><a href="#">System Support</a>
+      </div>
+      <span>SYSTEM_STATUS: NOMINAL // SIGNAL_STRENGTH: 98%</span>
+    </div>
+  </main>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.4/chart.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="assets/js/supabase-config.js"></script>
+<script src="assets/js/session.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/perfil.js"></script>
+</body>
+</html>

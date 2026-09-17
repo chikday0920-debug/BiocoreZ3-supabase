@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Crear cuenta · BioCoreZ3</title>
+<link rel="icon" href="assets/img/logo.svg">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#0e5c46">
+<link rel="apple-touch-icon" href="assets/img/icons/apple-touch-icon.png">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+<div class="auth-page" style="background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Rainforest.jpg?width=1600');">
+
+  <div style="position:relative; z-index:2; width:100%; display:flex; flex-direction:column; align-items:center;">
+
+    <div class="auth-brand">
+      <img src="assets/img/logo.svg" alt="BioCoreZ3">
+      <h1>BioCoreZ3</h1>
+    </div>
+    <p class="auth-tagline">RED DE INTELIGENCIA SOBRE LA BIODIVERSIDAD</p>
+
+    <div class="auth-shell">
+      <div class="auth-left">
+        <span class="auth-eyebrow"><i class="fa-solid fa-seedling"></i> NUEVO EXPLORADOR</span>
+        <h2>Empieza hoy con tu aventura en BioCoreZ3.</h2>
+
+        <div class="auth-feature">
+          <div class="ico"><i class="fa-solid fa-camera-retro"></i></div>
+          <div>
+            <b>Cataloga miles de especies raras con visión artificial.</b>
+            <span>Únete a más de 150.000 defensores del medio ambiente en todo el mundo.</span>
+          </div>
+        </div>
+        <div class="auth-feature">
+          <div class="ico"><i class="fa-solid fa-leaf"></i></div>
+          <div>
+            <b>Crea tu propio herbario digital GaiaDex.</b>
+            <span>Organiza, filtra y comparte cada descubrimiento que registres.</span>
+          </div>
+        </div>
+        <div class="auth-feature">
+          <div class="ico"><i class="fa-solid fa-earth-americas"></i></div>
+          <div>
+            <b>Contribuye a la cartografía global de la biodiversidad.</b>
+            <span>Cada escaneo alimenta la red científica abierta de BioCoreZ3.</span>
+          </div>
+        </div>
+
+        <div class="auth-social-card">
+          <div class="avatar-stack">
+            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Outdoors-man-portrait_(cropped).jpg?width=60" alt="">
+            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Red-eyed_Tree_Frog_(Agalychnis_callidryas)_3.jpg?width=60" alt="">
+            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Monarch_Butterfly_Pink_Zinnia_1800px.jpg?width=60" alt="">
+          </div>
+          <b style="font-size:.8rem;">Se unieron nuevos guardianes</b>
+          <div class="progress" style="margin:10px 0 6px;"><span style="width:64%"></span></div>
+          <div class="lvl-row"><span>LVL 42 REACHED</span><span>725 TO NEXT LVL</span></div>
+        </div>
+      </div>
+
+      <div class="auth-right">
+        <h2>Crear Cuenta</h2>
+        <p class="sub">Únete a la red BioCoreZ3 y comienza a escanear.</p>
+
+        <form id="registerForm">
+          <div class="field">
+            <label for="fullName">Nombre completo</label>
+            <div class="input-wrap">
+              <i class="fa-regular fa-user"></i>
+              <input id="fullName" type="text" placeholder="Ej. Alex Rivers" required>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="regEmail">Correo electrónico</label>
+            <div class="input-wrap">
+              <i class="fa-regular fa-envelope"></i>
+              <input id="regEmail" type="email" placeholder="alex@example.com" required>
+            </div>
+          </div>
+
+          <div class="input-row">
+            <div class="field">
+              <label for="username">Nombre de usuario</label>
+              <div class="input-wrap">
+                <i class="fa-solid fa-at"></i>
+                <input id="username" type="text" placeholder="nature_alex" required>
+              </div>
+            </div>
+            <div class="field">
+              <label for="regPass">Contraseña</label>
+              <div class="input-wrap">
+                <i class="fa-solid fa-lock"></i>
+                <input id="regPass" type="password" placeholder="••••••••" required>
+                <button type="button" class="toggle-eye" aria-label="Mostrar contraseña"><i class="fa-solid fa-eye"></i></button>
+              </div>
+            </div>
+          </div>
+
+          <label class="checkbox-row" style="margin-bottom:20px;">
+            <input type="checkbox" id="terms">
+            <span>Acepto los <a href="#" style="color:var(--teal-deep); font-weight:700;">Términos de Servicio</a> y el <a href="#" style="color:var(--teal-deep); font-weight:700;">Protocolo de Privacidad</a>.</span>
+          </label>
+
+          <button type="submit" class="btn btn-primary btn-lg">Crear cuenta segura <i class="fa-solid fa-arrow-right"></i></button>
+        </form>
+
+        <div id="registroConfirmacion" hidden style="text-align:center; padding:10px 0;">
+          <div style="font-size:2.4rem; margin-bottom:14px; color:var(--teal-deep);"><i class="fa-regular fa-envelope-circle-check"></i></div>
+          <h2 style="margin-bottom:10px;">Revisa tu correo</h2>
+          <p class="sub">Te enviamos un enlace de confirmación a <b data-confirmacion-email></b>. Ábrelo para activar tu cuenta y poder iniciar sesión.</p>
+        </div>
+
+        <div class="auth-divider">Autenticación digital</div>
+        <button class="social-btn"><i class="fa-brands fa-google"></i> Google</button>
+
+        <p class="auth-switch">¿Ya eres usuario? <a href="index.html">Inicia sesión</a></p>
+      </div>
+    </div>
+
+    <div class="auth-footer">
+      <span>SUPPORT</span>
+      <span>NETWORK STATUS</span>
+      <span>OPEN DATA</span>
+      <span>v4.2.0-STABLE // ENCRYPTED HANDSHAKE_READY</span>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="assets/js/supabase-config.js"></script>
+<script src="assets/js/session.js"></script>
+<script src="assets/js/auth.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>

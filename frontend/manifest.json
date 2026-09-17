@@ -1,0 +1,18 @@
+{
+  "name": "BioCoreZ3",
+  "short_name": "BioCoreZ3",
+  "description": "Escanea, identifica y colecciona la biodiversidad que te rodea.",
+  "id": "/index.html",
+  "start_url": "/index.html",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "lang": "es",
+  "background_color": "#0e5c46",
+  "theme_color": "#0e5c46",
+  "icons": [
+    { "src": "assets/img/icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "assets/img/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "assets/img/icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

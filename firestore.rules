@@ -1,0 +1,58 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Historial de analisis (Fase 7). Solo el backend (Admin SDK,
+    // que no pasa por estas reglas) escribe documentos; el cliente
+    // solo puede leer los suyos, y nunca modificarlos o borrarlos -
+    // el historial es un registro, no algo editable.
+    match /analisis/{docId} {
+      allow read: if request.auth != null && request.auth.uid == resource.data.uid;
+      allow write: if false;
+    }
+
+    // Perfil de usuario (Fase 7). El dueño puede leer su perfil y editar solo
+    // los campos de personalizacion (nombre, avatarUrl, bio); xp/nivel/monedas
+    // son de solo lectura para el cliente - los actualiza el backend (Admin SDK).
+    match /usuarios/{uid} {
+      allow read: if request.auth != null && request.auth.uid == uid;
+      allow update: if request.auth != null && request.auth.uid == uid
+        && request.resource.data.diff(resource.data).affectedKeys()
+             .hasOnly(['nombre', 'avatarUrl', 'bio']);
+      allow create, delete: if false;
+
+      // Inventario de compras. Solo lectura por el dueño; la escritura la
+      // hace la Cloud Function comprarItem via Admin SDK.
+      match /inventario/{itemId} {
+        allow read: if request.auth != null && request.auth.uid == uid;
+        allow write: if false;
+      }
+
+      // Un doc por especie distinta ya vista (alimenta gaiadex.html sin tener
+      // que leer todo el historial de /analisis). Solo lectura por el dueño;
+      // la escritura la hace analyzePlant via Admin SDK.
+      match /especiesVistas/{especieId} {
+        allow read: if request.auth != null && request.auth.uid == uid;
+        allow write: if false;
+      }
+    }
+
+    // Catalogo de la tienda. Publico de lectura, nadie escribe desde el cliente.
+    match /tienda/{itemId} {
+      allow read: if true;
+      allow write: if false;
+    }
+
+    // Ficha de referencia de especies (opcional, alimenta especie.html).
+    match /especies/{especieId} {
+      allow read: if true;
+      allow write: if false;
+    }
+
+    // Denegado por defecto para cualquier otra coleccion futura.
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

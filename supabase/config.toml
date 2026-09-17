@@ -1,0 +1,56 @@
+project_id = "biocorez3"
+
+[api]
+enabled = true
+port = 54321
+schemas = ["public", "graphql_public"]
+extra_search_path = ["public", "extensions"]
+max_rows = 1000
+
+[db]
+port = 54322
+major_version = 17
+
+[studio]
+enabled = true
+port = 54323
+
+# Servidor SMTP local de pruebas: aquí caen los correos de confirmación de
+# registro y de recuperación de contraseña cuando se corre en local, en vez
+# de enviarse de verdad. Revisar en http://127.0.0.1:54324.
+[inbucket]
+enabled = true
+port = 54324
+
+[storage]
+enabled = true
+file_size_limit = "50MiB"
+
+[auth]
+enabled = true
+# TODO (Fase 6 del plan de migración): cambiar a la URL real de Vercel apenas
+# exista, y agregarla también a additional_redirect_urls. Por ahora nadie usa
+# el proyecto hospedado como frontend real, así que dejarlo en localhost no
+# afecta a nadie — pero no hay que olvidarlo antes de lanzar a producción.
+site_url = "http://127.0.0.1:5173"
+additional_redirect_urls = ["http://127.0.0.1:5173", "http://127.0.0.1:3000"]
+jwt_expiry = 3600
+enable_signup = true
+
+[auth.email]
+enable_signup = true
+# Confirmación de correo obligatoria antes de poder iniciar sesión (ver
+# sección 8 del plan de migración: registro.html/auth.js manejan el estado
+# "revisa tu correo").
+enable_confirmations = true
+
+[auth.external.google]
+enabled = false
+client_id = ""
+secret = ""
+
+[functions.analyze-plant]
+verify_jwt = true
+
+[edge_runtime]
+enabled = true

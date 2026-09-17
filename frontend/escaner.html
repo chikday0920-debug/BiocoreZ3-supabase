@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Escáner · BioCoreZ3</title>
+<link rel="icon" href="assets/img/logo.svg">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#0e5c46">
+<link rel="apple-touch-icon" href="assets/img/icons/apple-touch-icon.png">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+<div class="app">
+  <div class="sidebar-backdrop" data-menu-toggle></div>
+  <aside class="sidebar">
+    <div class="brand"><img src="assets/img/logo.svg" alt=""><span>BioCoreZ3</span></div>
+    <nav class="nav-group">
+      <a class="nav-link" data-page="dashboard.html" href="dashboard.html"><i class="fa-solid fa-house"></i> Inicio</a>
+      <a class="nav-link active" data-page="escaner.html" href="escaner.html"><i class="fa-solid fa-camera"></i> Escáner</a>
+      <a class="nav-link" data-page="gaiadex.html" href="gaiadex.html"><i class="fa-solid fa-book-open"></i> Gaiadex</a>
+      <a class="nav-link" data-page="tienda.html" href="tienda.html"><i class="fa-solid fa-store"></i> Tienda</a>
+      <a class="nav-link" data-page="perfil.html" href="perfil.html"><i class="fa-solid fa-user"></i> Perfil</a>
+      <a class="nav-link" data-page="configuracion.html" href="configuracion.html"><i class="fa-solid fa-gear"></i> Configuraciones</a>
+    </nav>
+    <div class="sidebar-foot">
+      <a class="logout-link" href="index.html"><i class="fa-solid fa-right-from-bracket"></i> Salir</a>
+      <div class="tip-card"><i class="fa-solid fa-sparkles"></i> Tu contribución a la biodiversidad alcanzó el Nivel 4. ¡Sigue explorando!</div>
+    </div>
+  </aside>
+
+  <main class="main">
+    <div class="topbar">
+      <button class="menu-toggle" data-menu-toggle aria-label="Abrir menú"><i class="fa-solid fa-bars"></i></button>
+      <div class="search-box"><i class="fa-solid fa-magnifying-glass"></i><input placeholder="Buscar especies…" aria-label="Buscar especies"></div>
+      <div class="topbar-actions">
+        <div class="bell"><i class="fa-regular fa-bell"></i><span class="dot"></span></div>
+        <div class="user-chip">
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Outdoors-man-portrait_(cropped).jpg?width=90" alt="">
+          <div><div class="name">Alex Rivers</div><div class="lvl">Nivel 12 · 420 XP</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="page">
+      <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:14px; margin-bottom:20px; color:#fff;">
+        <div>
+          <h1 style="font-size:1.7rem;">Escáner biométrico con I.A</h1>
+          <p style="opacity:.85; font-size:.85rem; margin-top:6px;"><i class="fa-solid fa-diamond" style="font-size:.6rem;"></i> Región activa · San Pedro de los Milagros / Ant (7-B)</p>
+        </div>
+        <div style="display:flex; gap:12px; flex-wrap:wrap;">
+          <button class="btn btn-ghost"><i class="fa-regular fa-clock"></i> Historial reciente</button>
+          <button class="btn btn-ghost"><i class="fa-solid fa-box-archive"></i> GaiaDex Archive</button>
+        </div>
+      </div>
+
+      <div class="grid grid-main">
+        <!-- Viewfinder -->
+        <div class="card" style="overflow:hidden; position:relative; min-height:520px; background:
+            linear-gradient(180deg, rgba(6,30,22,.15), rgba(6,30,22,.55)),
+            url('https://commons.wikimedia.org/wiki/Special:FilePath/Potatoes.jpg?width=1200') center/cover;">
+          <div style="position:absolute; top:18px; left:18px; display:flex; gap:8px;">
+            <span class="pill pill-soft" style="background:rgba(220,38,38,.85);"><i class="fa-solid fa-circle" style="font-size:.5rem;"></i> REC · FEED_1D0829</span>
+          </div>
+          <div style="position:absolute; top:18px; right:18px; font-size:.68rem; color:#fff; text-align:right; opacity:.85;">
+            COORDINATES<br>40.7128° N · 74.0060° W
+          </div>
+          <div style="position:absolute; top:56px; left:18px; display:flex; gap:8px;" class="tabs" data-tabs-mode>
+            <button type="button" class="tab-btn active pill pill-soft" data-scan-mode="planta"><i class="fa-solid fa-leaf"></i> Modo Planta</button>
+            <button type="button" class="tab-btn pill pill-soft" data-scan-mode="animal"><i class="fa-solid fa-paw"></i> Modo Fauna</button>
+          </div>
+
+          <input type="file" id="scanFile" accept="image/*" capture="environment" hidden>
+
+          <div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center;">
+            <div id="scanFrame" style="width:230px; height:230px; border:2px dashed rgba(195,245,60,.7); border-radius:20px; overflow:hidden; display:flex; align-items:center; justify-content:center; background:rgba(0,0,0,.15);">
+              <img id="scanPreview" style="display:none; width:100%; height:100%; object-fit:cover;" alt="Muestra seleccionada">
+              <span id="scanFramePlaceholder" style="color:rgba(255,255,255,.7); font-size:.78rem; text-align:center; padding:0 20px;">Selecciona una foto de la muestra</span>
+            </div>
+          </div>
+
+          <div style="position:absolute; bottom:22px; left:0; right:0; display:flex; justify-content:center; gap:18px;">
+            <button id="pickImageBtn" type="button" class="btn-icon" style="background:rgba(0,0,0,.4); color:#fff; width:48px; height:48px;" aria-label="Seleccionar imagen de la galería"><i class="fa-solid fa-image"></i></button>
+            <button id="scanTrigger" type="button" class="btn-icon" style="background:var(--teal); color:#fff; width:64px; height:64px; box-shadow:0 8px 24px rgba(0,0,0,.35);" disabled aria-label="Analizar muestra"><i class="fa-solid fa-crop-simple" style="font-size:1.3rem;"></i></button>
+            <button id="pickImageBtn2" type="button" class="btn-icon" style="background:rgba(0,0,0,.4); color:#fff; width:48px; height:48px;" aria-label="Tomar foto"><i class="fa-solid fa-camera"></i></button>
+          </div>
+        </div>
+
+        <!-- Bio-Analisis -->
+        <div style="display:flex; flex-direction:column; gap:22px;">
+          <div class="card card-pad">
+            <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:16px;">
+              <div class="section-title" style="margin-bottom:0;">Bio-Análisis</div>
+              <span class="pill pill-soft">Datos en tiempo real</span>
+            </div>
+            <div style="display:flex; justify-content:space-between; font-size:.72rem; text-transform:uppercase; letter-spacing:.05em; opacity:.85; margin-bottom:6px;">
+              <span>Confianza neuronal</span><b id="confValue" style="color:var(--lime)">8%</b>
+            </div>
+            <div class="progress" style="margin-bottom:18px;"><span style="width:8%"></span></div>
+
+            <div style="display:flex; align-items:center; gap:10px; background:rgba(255,255,255,.14); border-radius:12px; padding:10px 14px; margin-bottom:20px; font-size:.8rem;">
+              <i class="fa-solid fa-microchip"></i> Motor de identificación <b style="margin-left:auto;">v4.2 mejora</b>
+            </div>
+
+            <div id="scanStatus" style="text-align:center; padding:26px 10px; background:rgba(255,255,255,.08); border-radius:16px;">
+              <div style="width:70px; height:70px; margin:0 auto 14px; border-radius:50%; background:rgba(255,255,255,.18); display:flex; align-items:center; justify-content:center;">
+                <i class="fa-solid fa-crop-simple" style="font-size:1.4rem;"></i>
+              </div>
+              <b style="display:block; margin-bottom:4px;">No hay escaneo activo</b>
+              <span style="font-size:.78rem; opacity:.8;">Apunte el visor hacia la muestra biológica para comenzar su identificación.</span>
+            </div>
+          </div>
+
+          <div class="card card-pad">
+            <div style="display:flex; align-items:center; gap:8px; margin-bottom:16px;">
+              <i class="fa-solid fa-circle-info"></i><b>Sensores ambientales</b>
+            </div>
+            <div class="grid grid-2" style="gap:14px; margin-bottom:16px;">
+              <div>
+                <div style="font-size:.7rem; opacity:.75; text-transform:uppercase;">Humedad</div>
+                <div style="font-size:1.3rem; font-weight:700;">84%</div>
+              </div>
+              <div>
+                <div style="font-size:.7rem; opacity:.75; text-transform:uppercase;">Calidad del aire</div>
+                <div style="font-size:1.3rem; font-weight:700; color:var(--lime);">Óptimo</div>
+              </div>
+              <div>
+                <div style="font-size:.7rem; opacity:.75; text-transform:uppercase;">Índice UV</div>
+                <div style="font-size:1.3rem; font-weight:700;">2.4</div>
+              </div>
+              <div>
+                <div style="font-size:.7rem; opacity:.75; text-transform:uppercase;">Nivel de toxicidad</div>
+                <div style="font-size:1.3rem; font-weight:700; color:#facc15;">Rastro</div>
+              </div>
+            </div>
+            <div style="background:rgba(220,38,38,.22); border:1px solid rgba(220,38,38,.4); border-radius:12px; padding:12px 14px; font-size:.78rem; line-height:1.5;">
+              <i class="fa-solid fa-triangle-exclamation" style="color:#fca5a5;"></i> Alerta de peligro: se ha detectado una alta concentración de esporas biocontaminantes en las inmediaciones. Utilice filtros respiratorios si permanece en la zona.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-min">
+      <div style="display:flex; align-items:center; gap:8px;"><img src="assets/img/logo.svg" style="width:22px;height:22px;" alt=""> biocoreZ</div>
+      <span>© 2026 BIOCOREZ</span>
+    </div>
+  </main>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="assets/js/supabase-config.js"></script>
+<script src="assets/js/session.js"></script>
+<script src="assets/js/scanner.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>

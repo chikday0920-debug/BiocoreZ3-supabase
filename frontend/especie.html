@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Especie · BioCoreZ3</title>
+<link rel="icon" href="assets/img/logo.svg">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#0e5c46">
+<link rel="apple-touch-icon" href="assets/img/icons/apple-touch-icon.png">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+<div class="species-hero">
+  <div class="species-topbar">
+    <a href="gaiadex.html" class="btn-icon" style="background:rgba(255,255,255,.2); color:#fff;" aria-label="Volver a Gaiadex"><i class="fa-solid fa-arrow-left"></i></a>
+    <div style="flex:1;">
+      <b>Panel de Control</b> <span style="opacity:.75; font-size:.85rem;">/ Gaiadex / Resumen</span>
+    </div>
+    <div class="search-box" style="min-width:220px;"><i class="fa-solid fa-magnifying-glass"></i><input placeholder="Buscar especies, insignias…"></div>
+    <div class="bell"><i class="fa-regular fa-bell"></i><span class="dot"></span></div>
+    <div class="user-chip">
+      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Outdoors-man-portrait_(cropped).jpg?width=90" alt="">
+      <div><div class="name">Explorador</div><div class="lvl">Nivel 1 · 0 XP</div></div>
+    </div>
+  </div>
+
+  <div class="species-wrap" data-especie-wrap>
+    <div class="species-media">
+      <img data-especie-img src="" alt="">
+    </div>
+
+    <h1 class="species-name" data-especie-nombre>Cargando…</h1>
+    <div class="sci-label">Nombre científico</div>
+    <span class="sci-pill" data-especie-cientifico></span>
+
+    <div class="trait-grid">
+      <div class="trait-card"><span class="emoji">🧬</span><div><b>Tipo</b><span data-especie-tipo></span></div></div>
+      <div class="trait-card"><span class="emoji">⭐</span><div><b>Rareza</b><span data-especie-rareza></span></div></div>
+      <div class="trait-card"><span class="emoji">🎯</span><div><b>Confianza IA del último escaneo</b><span data-especie-confianza></span></div></div>
+      <div class="trait-card"><span class="emoji">🗓️</span><div><b>Primer registro</b><span data-especie-fecha></span></div></div>
+    </div>
+
+    <div class="about-card" data-especie-about-card style="display:none;">
+      <span class="emoji">🌿</span>
+      <div>
+        <h4>Sobre la especie</h4>
+        <p data-especie-descripcion></p>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="assets/js/supabase-config.js"></script>
+<script src="assets/js/session.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/especie.js"></script>
+</body>
+</html>

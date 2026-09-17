@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gaiadex · BioCoreZ3</title>
+<link rel="icon" href="assets/img/logo.svg">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#0e5c46">
+<link rel="apple-touch-icon" href="assets/img/icons/apple-touch-icon.png">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+  .species-card{ background:#fff; border-radius:var(--radius-lg); overflow:hidden; box-shadow:var(--shadow-sm); display:flex; flex-direction:column; }
+  .species-card .thumb{ position:relative; height:170px; }
+  .species-card .thumb img{ width:100%; height:100%; object-fit:cover; }
+  .species-card .thumb .type-ico{ position:absolute; top:10px; left:10px; width:30px; height:30px; border-radius:50%; background:rgba(255,255,255,.9); display:flex; align-items:center; justify-content:center; font-size:.8rem; }
+  .species-card .thumb .rarity{ position:absolute; top:10px; right:10px; }
+  .species-card .body{ padding:16px 18px; flex:1; display:flex; flex-direction:column; }
+  .species-card h3{ font-size:1.05rem; margin-bottom:2px; }
+  .species-card .sci{ font-style:italic; font-size:.78rem; color:var(--muted); margin-bottom:12px; }
+  .species-card .meta{ display:flex; justify-content:space-between; font-size:.72rem; margin-bottom:14px; }
+  .species-card .meta b{ display:block; text-transform:uppercase; color:var(--muted); font-weight:700; font-size:.62rem; margin-bottom:3px; letter-spacing:.04em; }
+  .species-card .foot{ margin-top:auto; display:flex; align-items:center; justify-content:space-between; padding-top:12px; border-top:1px solid var(--line); font-size:.82rem; font-weight:700; color:var(--teal-deep); }
+  .filter-block{ margin-bottom:22px; }
+  .filter-block h4{ font-size:.78rem; text-transform:uppercase; letter-spacing:.04em; color:var(--ink-soft); margin-bottom:12px; display:flex; align-items:center; gap:8px; }
+  .filter-check{ display:flex; align-items:center; gap:10px; font-size:.86rem; margin-bottom:10px; color:var(--ink-soft); }
+  .filter-check input{ width:16px; height:16px; accent-color: var(--teal-deep); }
+</style>
+</head>
+<body>
+
+<div class="app">
+  <div class="sidebar-backdrop" data-menu-toggle></div>
+  <aside class="sidebar">
+    <div class="brand"><img src="assets/img/logo.svg" alt=""><span>BioCoreZ3</span></div>
+    <nav class="nav-group">
+      <a class="nav-link" data-page="dashboard.html" href="dashboard.html"><i class="fa-solid fa-house"></i> Inicio</a>
+      <a class="nav-link" data-page="escaner.html" href="escaner.html"><i class="fa-solid fa-camera"></i> Escáner</a>
+      <a class="nav-link active" data-page="gaiadex.html" href="gaiadex.html"><i class="fa-solid fa-book-open"></i> Gaiadex</a>
+      <a class="nav-link" data-page="tienda.html" href="tienda.html"><i class="fa-solid fa-store"></i> Tienda</a>
+      <a class="nav-link" data-page="perfil.html" href="perfil.html"><i class="fa-solid fa-user"></i> Perfil</a>
+      <a class="nav-link" data-page="configuracion.html" href="configuracion.html"><i class="fa-solid fa-gear"></i> Configuraciones</a>
+    </nav>
+    <div class="sidebar-foot">
+      <a class="logout-link" href="index.html"><i class="fa-solid fa-right-from-bracket"></i> Salir</a>
+      <div class="tip-card"><i class="fa-solid fa-sparkles"></i> Tu contribución a la biodiversidad alcanzó el Nivel 4.</div>
+    </div>
+  </aside>
+
+  <main class="main">
+    <div class="topbar">
+      <button class="menu-toggle" data-menu-toggle aria-label="Abrir menú"><i class="fa-solid fa-bars"></i></button>
+      <div class="search-box"><i class="fa-solid fa-magnifying-glass"></i><input placeholder="Buscar especies, insignias…" aria-label="Buscar especies, insignias"></div>
+      <div class="topbar-actions">
+        <div class="bell"><i class="fa-regular fa-bell"></i><span class="dot"></span></div>
+        <div class="user-chip">
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Outdoors-man-portrait_(cropped).jpg?width=90" alt="">
+          <div><div class="name">Alex Rivers</div><div class="lvl">Nivel 12 · 420 XP</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="page">
+      <div style="display:flex; align-items:flex-start; justify-content:space-between; flex-wrap:wrap; gap:14px; margin-bottom:22px; color:#fff;">
+        <div style="max-width:640px;">
+          <h1 style="font-size:1.8rem; margin-bottom:8px;">Gaiadex</h1>
+          <p style="opacity:.85; font-size:.9rem;">Explora y analiza los datos de biodiversidad que has recopilado. Utiliza filtros técnicos avanzados para aislar especies por hábitat, rareza y fecha de descubrimiento.</p>
+        </div>
+        <div style="display:flex; gap:12px; flex-wrap:wrap;">
+          <button class="btn btn-ghost"><i class="fa-solid fa-download"></i> Exportar datos</button>
+          <button class="btn btn-primary"><i class="fa-solid fa-satellite-dish"></i> Escáner de sincronización</button>
+        </div>
+      </div>
+
+      <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:14px; margin-bottom:22px;">
+        <div class="tabs" data-tab-filter>
+          <button class="tab-btn active" data-filter-type="todas">Todas las especies</button>
+          <button class="tab-btn" data-filter-type="planta">Plantas</button>
+          <button class="tab-btn" data-filter-type="animal">Animales</button>
+        </div>
+        <div style="display:flex; gap:10px;">
+          <div class="tabs"><button class="tab-btn active" aria-label="Vista de cuadrícula"><i class="fa-solid fa-table-cells-large"></i></button><button class="tab-btn" aria-label="Vista de lista"><i class="fa-solid fa-list"></i></button></div>
+          <button class="btn btn-ghost btn-sm"><i class="fa-solid fa-arrow-down-short-wide"></i> El más nuevo</button>
+        </div>
+      </div>
+
+      <div class="grid grid-sidebar">
+
+        <!-- Filters -->
+        <div class="card-light card-pad">
+          <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:18px;">
+            <b style="display:flex; align-items:center; gap:8px; font-size:.95rem;"><i class="fa-solid fa-sliders"></i> Filtros avanzados</b>
+            <button data-clear-filters style="background:none;border:none;color:var(--teal-deep); font-weight:700; font-size:.78rem;">Limpiar todo</button>
+          </div>
+          <div class="input-wrap no-icon" style="margin-bottom:22px;">
+            <input id="gaiadexSearch" class="input" placeholder="Buscar…" style="padding-left:16px;">
+          </div>
+
+          <div class="filter-block">
+            <h4><i class="fa-solid fa-layer-group"></i> Tipo de colección</h4>
+            <label class="filter-check"><input type="checkbox"> Flora Nativa</label>
+            <label class="filter-check"><input type="checkbox"> Fauna</label>
+            <label class="filter-check"><input type="checkbox"> Hongos y líquenes</label>
+          </div>
+
+          <div class="filter-block">
+            <h4><i class="fa-solid fa-star"></i> Especies raras</h4>
+            <div style="display:flex; justify-content:space-between; font-size:.68rem; color:var(--muted); margin-bottom:6px;">
+              <span>Min. raras</span><span>Poco común</span>
+            </div>
+            <input id="rareRange" type="range" style="width:100%; accent-color:var(--teal-deep); margin-bottom:12px;" aria-label="Nivel mínimo de rareza">
+            <div style="display:flex; gap:10px;">
+              <button class="chip chip-light">Raro</button>
+              <button class="chip chip-light">Legendario</button>
+            </div>
+          </div>
+
+          <div class="filter-block">
+            <h4><i class="fa-solid fa-globe"></i> Biorecursion Zone</h4>
+            <label class="filter-check"><input type="checkbox"> Selva tropical</label>
+            <label class="filter-check"><input type="checkbox"> Bosque nuboso</label>
+            <label class="filter-check"><input type="checkbox"> Tundra alpina</label>
+            <label class="filter-check"><input type="checkbox"> Manglar costero</label>
+          </div>
+
+          <div class="filter-block" style="margin-bottom:0;">
+            <h4 style="margin-bottom:8px;">Progreso</h4>
+            <span style="font-size:.72rem; color:var(--muted);">64% de la meta local alcanzada</span>
+            <div class="progress-light progress" style="margin-top:8px;"><span style="width:64%"></span></div>
+          </div>
+        </div>
+
+        <!-- Grid -->
+        <div>
+          <div class="grid grid-3" data-gaiadex-grid>
+            <p style="color:var(--muted);">Cargando tu Gaiadex…</p>
+          </div>
+
+          <div class="card-light" data-gaiadex-empty style="display:none; text-align:center; padding:40px; margin-top:22px; color:var(--muted);">
+            No se encontraron especies con esos filtros.
+          </div>
+
+          <div class="card-light card-pad" style="text-align:center; margin-top:22px;">
+            <div style="width:60px; height:60px; border-radius:50%; background: var(--mint-100); display:flex; align-items:center; justify-content:center; margin:0 auto 14px; font-size:1.3rem; color:var(--teal-deep);"><i class="fa-solid fa-crop-simple"></i></div>
+            <b>Descubre más especies para completar tu GaiaDex</b>
+            <div style="margin-top:14px;"><a href="escaner.html" class="btn btn-primary btn-sm">Abrir escáner <i class="fa-solid fa-arrow-right"></i></a></div>
+          </div>
+
+          <div style="display:flex; align-items:center; justify-content:space-between; margin-top:22px; color:#fff; font-size:.85rem; flex-wrap:wrap; gap:10px;">
+            <span>mostrando 6 de 10 especies descubiertas</span>
+            <div style="display:flex; gap:8px;">
+              <button class="btn btn-ghost btn-sm" disabled>anterior</button>
+              <button class="btn btn-white btn-sm">1</button>
+              <button class="btn btn-ghost btn-sm">2</button>
+              <button class="btn btn-ghost btn-sm">3</button>
+              <button class="btn btn-ghost btn-sm">siguiente</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="assets/js/supabase-config.js"></script>
+<script src="assets/js/session.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/gaiadex.js"></script>
+</body>
+</html>
